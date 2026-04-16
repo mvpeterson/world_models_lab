@@ -29,6 +29,12 @@ All scripts share common utilities (`common_mnist.py`, `common_conv.py`) and dif
    - A standard AE (reconstruction uses the *full* latent), augmented with a trainable **hard top‑k gate** at the top latent level.
    - The gate selects a subset of latent channels that are trained to be predictable via an additional latent prediction loss.
 
+5) **Stack of gated predictive autoencoders**
+   - [`test_stack_gated_ae.py`](https://github.com/Necr0x0Der/world_models_lab/blob/main/gated_ae/mnist/test_stack_gated_ae.py)
+   - Gates are added to each AE layer. The loss is the sum of losses at each layer.
+   - [`test_stack_gated_pretrain.py`](https://github.com/Necr0x0Der/world_models_lab/blob/main/gated_ae/mnist/test_stack_gated_pretrain.py)
+   - The stack is pretrained after adding each layer.
+
 ## Summary of observed results (5 conv layers)
 
 Using a 5-layer conv backbone, the best linear-probe scores we observed are:
